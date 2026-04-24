@@ -19,6 +19,7 @@ useEffect(() => {
       if (success){
         setUserData(data.data)
         handleSuccess(message)
+        console.log(data.data)
       }else if (!success){
         handleSuccess(message)
       }
@@ -49,7 +50,7 @@ useEffect(() => {
           <ul>
             {userData.map((user) => (
               <li key={user._id}>
-                <strong>{user.name}</strong> - {user.email}
+                <strong>{user.username}</strong> - {user.email}
               </li>
             ))}
           </ul>
