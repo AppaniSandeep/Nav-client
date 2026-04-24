@@ -17,14 +17,10 @@ useEffect(() => {
       const data = await response.json();
       const {message,success} = data
       if (success){
+        handleSuccess(message)
         setUserData(data.data)
-        handleSuccess(message)
-        console.log(data.data)
-      }else if (!success){
-        handleSuccess(message)
       }
     } catch (error) {
-      console.error("Error fetching user data:", error);
       handleSuccess("Error fetching user data");
     }
   }
