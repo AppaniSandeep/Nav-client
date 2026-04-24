@@ -27,7 +27,7 @@ function Signup() {
             return handleError("Username, email and password are required")
         }
         try {
-            const url = "http://localhost:8080/auth/signup"
+            const url = "https://nav-backend.onrender.com/auth/signup"
             const response = await fetch(url,{
                 method:"POST",
                 headers:{
@@ -52,7 +52,6 @@ function Signup() {
 
         }catch(e){
             handleError(e)
-
         }
     }
    return (
@@ -61,15 +60,15 @@ function Signup() {
       <form onSubmit={onSubmitSignForm}>
         <div>
             <label htmlFor='username'>Username</label>
-            <input onChange={onChangeInput} type="text" name="username" id ="username" placeholder='Enter username' value={signupData.name}/>
+            <input onChange={onChangeInput} type="text" name="username" id ="username" placeholder='Enter username' value={signupData.username}/>
         </div>
         <div>
             <label htmlFor='email'>Email</label>
-            <input onChange={onChangeInput} type="email" name="email" id ="email" placeholder='Enter email'value={signupData.name}/>
+            <input onChange={onChangeInput} type="email" name="email" id ="email" placeholder='Enter email'value={signupData.email}/>
         </div>
         <div>
             <label htmlFor='password'>Password</label>
-            <input onChange={onChangeInput} type="password" name="password" id ="password" placeholder='email'value={signupData.name}/>
+            <input onChange={onChangeInput} type="password" name="password" id ="password" placeholder='Enter password'value={signupData.password}/>
         </div><br/>
         <button type="submit">Signup</button><br/>
         <span>Already have an account ? <Link to="/login">Login</Link></span>
