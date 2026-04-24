@@ -66,7 +66,7 @@ function Login() {
         </div>
         <div>
             <label htmlFor='password'>Password</label>
-            <input onChange={onChangeInput} type="password" name="password" id ="password" placeholder='email'value={loginData.name}/>
+            <input onChange={onChangeInput} type="password" name="password" id ="password" placeholder='Enter password'value={loginData.name}/>
         </div><br/>
         <button type="submit">Login</button><br/>
         <span>Create an account ? <Link to="/signup">Signup</Link></span>

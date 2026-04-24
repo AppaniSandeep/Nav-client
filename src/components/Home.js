@@ -27,6 +27,24 @@ useEffect(() => {
   fetchUserData();
 },[])
 
+const onDeleteUser = async (id) => {
+  try {
+    const url = `https://nav-backend.onrender.com/auth/delete/${id}`
+    const response = await fetch(url,{
+      method:"DELETE"
+    })
+    const data = await response.json();
+    const {message,success} = data
+    if (success){
+      handleSuccess(message)
+      // Remove the deleted user from the userData state
+      setUserData(userData.filter(user => user._id !== id))
+    }
+  } catch (error) {
+    handleSuccess("Error deleting user");
+  }
+}
+
   const onClickLogout = () => {
     localStorage.removeItem("token")
     localStorage.removeItem("loggedInUser")
@@ -47,6 +65,7 @@ useEffect(() => {
             {userData.map((user) => (
               <li key={user._id}>
                 <strong>{user.username}</strong> - {user.email}
+                <button type="button" onClick={() => onDeleteUser(user._id)}>Delete</button>
               </li>
             ))}
           </ul>
