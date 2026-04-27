@@ -36,7 +36,10 @@ const onDeleteUser = async (id) => {
   try {
     const url = `https://nav-backend.onrender.com/auth/delete/${id}`
     const response = await fetch(url,{
-      method:"DELETE"
+      method:"DELETE",
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("token")}`
+      }
     })
     const data = await response.json();
     const {message,success} = data
