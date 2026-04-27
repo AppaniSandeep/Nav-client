@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { handleSuccess } from './utils';
+import { ToastContainer } from 'react-toastify';
+import { handleSuccess,handleError } from './utils';
 
 function Home() {
 const [loggedInUser,setLoggedInUser] = useState("");
@@ -49,7 +50,7 @@ const onDeleteUser = async (id) => {
       setUserData(userData.filter(user => user._id !== id))
     }
   } catch (error) {
-    handleSuccess("Error deleting user");
+    handleError("Error deleting user");
   }
 }
 
@@ -81,6 +82,7 @@ const onDeleteUser = async (id) => {
           <p>No users found.</p>
         )}
       </div>
+      <ToastContainer/>
     </div>
   )
 }
