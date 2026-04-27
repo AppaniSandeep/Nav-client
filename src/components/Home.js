@@ -13,7 +13,12 @@ useEffect(() => {
   const fetchUserData = async () => {
     try {
       const url = "https://nav-backend.onrender.com/auth/home"
-      const response = await fetch(url);
+      const response = await fetch(url,{
+        method:"GET",
+        headers: {
+          "Authorization": `Bearer ${localStorage.getItem("token")}`
+        }
+      });
       const data = await response.json();
       const {message,success} = data
       if (success){
