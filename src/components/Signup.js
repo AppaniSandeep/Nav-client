@@ -14,7 +14,6 @@ function Signup() {
 
     const onChangeInput = (event) => {
         const {name,value} = event.target;
-        console.log(name,value)
         const signupDetails = {...signupData};
         signupDetails[name] = value
         setSignupData(signupDetails)
@@ -38,7 +37,6 @@ function Signup() {
 
             })
             const result = await response.json()
-            console.log(result)
             const {message,success} = result
              if (success){
                 handleSuccess(message);

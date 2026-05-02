@@ -85,7 +85,7 @@ const onDeleteUser = async (id) => {
             ))}
           </ul>
         ) : (
-          <p>No users found.</p>
+          <p className='no-users'>No users found.</p>
         )}
       </div>
       <ToastContainer/>

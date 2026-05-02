@@ -13,7 +13,6 @@ function Login() {
 
     const onChangeInput = (event) => {
         const {name,value} = event.target;
-        console.log(name,value)
         const loginDetails = {...loginData};
         loginDetails[name] = value
         setLoginData(loginDetails)
@@ -37,7 +36,6 @@ function Login() {
 
             })
             const result = await response.json()
-            console.log(result)
             const {message,success,jwtToken,username} = result
              if (success && jwtToken){
                 handleSuccess(message);
