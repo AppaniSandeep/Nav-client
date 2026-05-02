@@ -64,17 +64,23 @@ const onDeleteUser = async (id) => {
 
   }
   return (
-    <div className='container'>
-      <h1>{loggedInUser}</h1>
-      <button type="button" onClick={onClickLogout}>Logout</button>
+    <div className='home-container'>
+      <div className='home-header'>
+        <h1 className='username'>Welcome, {loggedInUser}</h1>
+        <button className='logout-btn' type="button" onClick={onClickLogout}>Logout</button>
+      </div>
       <div>
-        <h2>All Users</h2>
+        <div className='user-section'>
+          <h2 className='section-title'>All Users</h2>
         {userData.length > 0 ? (
-          <ul>
+          <ul className='user-list'>
             {userData.map((user) => (
-              <li key={user._id}>
-                <strong>{user.username}</strong> - {user.email}
-                <button type="button" onClick={() => onDeleteUser(user._id)}>Delete</button>
+              <li key={user._id} className='user-card'>
+                <div className='user-info'>
+                  <span className='user-username'>{user.username}</span>  
+                  <span className='user-email'>{user.email}</span>
+                </div>
+                <button className='delete-btn' type="button" onClick={() => onDeleteUser(user._id)}>Delete</button>
               </li>
             ))}
           </ul>
@@ -83,6 +89,7 @@ const onDeleteUser = async (id) => {
         )}
       </div>
       <ToastContainer/>
+        </div>
     </div>
   )
 }
