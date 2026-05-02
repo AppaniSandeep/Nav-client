@@ -64,7 +64,7 @@ const onDeleteUser = async (id) => {
 
   }
   return (
-    <div>
+    <div className='container'>
       <h1>{loggedInUser}</h1>
       <button type="button" onClick={onClickLogout}>Logout</button>
       <div>
