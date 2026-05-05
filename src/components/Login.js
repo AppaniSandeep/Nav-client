@@ -67,6 +67,7 @@ function Login() {
             <input onChange={onChangeInput} type="password" name="password" id ="password" placeholder='Enter password' value={loginData.name}/>
         </div><br/>
         <button type="submit">Login</button><br/>
+            <Link to="/forget-password">Forget password?</Link>
         <span>Create an account ? <Link to="/signup">Signup</Link></span>
       </form>
       <ToastContainer/>

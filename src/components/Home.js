@@ -7,7 +7,6 @@ function Home() {
 const [loggedInUser,setLoggedInUser] = useState("");
 const [userData, setUserData] = useState([]);
 
-
 const navigate = useNavigate();
 useEffect(() => {
   setLoggedInUser(localStorage.getItem("loggedInUser"))
@@ -21,6 +20,7 @@ useEffect(() => {
         }
       });
       const data = await response.json();
+      console.log(data)
       const {message,success} = data
       if (success){
         handleSuccess(message)
