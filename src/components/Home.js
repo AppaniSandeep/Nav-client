@@ -27,6 +27,7 @@ useEffect(() => {
         setUserData(data.data)
       }
     } catch (error) {
+      console.error(error);
       handleSuccess("Error fetching user data");
     }
   }
