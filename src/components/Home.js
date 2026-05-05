@@ -27,8 +27,8 @@ useEffect(() => {
         setUserData(data.data)
       }
     } catch (error) {
-      console.error(error);
-      handleSuccess("Error fetching user data");
+      console.log(error.message);
+      handleError("Error fetching user data");
     }
   }
   fetchUserData();
@@ -52,6 +52,7 @@ const onDeleteUser = async (id) => {
     }
   } catch (error) {
     handleError("Error deleting user");
+    console.log(error.message);
   }
 }
 
